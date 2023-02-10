@@ -13,10 +13,10 @@ namespace Wall
 
         public void IncreaseMovementSpeed()
         {
-            _movementSpeed += 0.1f;
-            if (_movementSpeed > 15)
+            _movementSpeed += 0.2f;
+            if (_movementSpeed > 12)
             {
-                _movementSpeed = 15;
+                _movementSpeed = 12;
             }
         }
     }

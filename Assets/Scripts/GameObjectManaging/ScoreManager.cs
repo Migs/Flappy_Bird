@@ -16,18 +16,6 @@ public class ScoreManager : MonoBehaviour
         WallMovingScript.IncrementScore -= IncrementScore;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void IncrementScore()
     {
         TextMeshProUGUI temp = GetComponent<TextMeshProUGUI>();

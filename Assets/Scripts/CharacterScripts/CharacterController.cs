@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
 
-    float jumpDistance = 0.75f;
+    float jumpDistance = 1f;
     // Update is called once per frame
     void Update()
     {
