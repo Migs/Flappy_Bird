@@ -9,21 +9,22 @@ namespace Wall
     {
         public delegate void OnWallPass();
         public static event OnWallPass IncrementScore;
+        WallStatsScriptableObject _wallStats;
 
         private GameObject bird;
 
         bool givePoints = true;
-        float movementSpeed = 7;
 
         void Start()
         {
             bird = GameObject.FindGameObjectWithTag("Bird");
+            _wallStats = ScriptableObject.CreateInstance<WallStatsScriptableObject>();
         }
 
         // Update is called once per frame
         void Update()
         {
-            transform.position = new Vector2(transform.position.x - (movementSpeed)*Time.deltaTime, transform.position.y);
+            transform.position = new Vector2(transform.position.x - (WallStatsScriptableObject._movementSpeed)*Time.deltaTime, transform.position.y);
 
             if (givePoints)
             {
@@ -33,6 +34,7 @@ namespace Wall
                     if(IncrementScore != null)
                     {
                         IncrementScore();
+                        _wallStats.IncreaseMovementSpeed();
                     }
                 }
             }
@@ -46,7 +48,7 @@ namespace Wall
 
         public float GetMovementSpeed()
         {
-            return movementSpeed;
+            return WallStatsScriptableObject._movementSpeed;
         }
     }
 
