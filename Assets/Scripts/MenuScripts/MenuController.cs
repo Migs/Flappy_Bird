@@ -23,6 +23,9 @@ namespace Menu{
                 case "playGame":
                     UnityEngine.SceneManagement.SceneManager.LoadScene("GameScreen");
                     break;
+                case "mainmenu":
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+                    break;
             }
         }
     }

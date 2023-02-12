@@ -55,6 +55,7 @@ namespace GameManagement
                     HandlePlaying();
                     break;
                 case GameState.GameOver:
+                    HandleGameOver();
                     break;
                 default:
                     //throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
@@ -62,6 +63,11 @@ namespace GameManagement
             }
 
             OnGameStateChanged?.Invoke(newState);
+        }
+
+        private void HandleGameOver()
+        {
+            Time.timeScale = 0f;
         }
 
         private void HandlePlaying()

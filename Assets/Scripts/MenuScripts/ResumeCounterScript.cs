@@ -9,7 +9,14 @@ public class ResumeCounterScript : MonoBehaviour
     TextMeshProUGUI text;
     private void Awake()
     {
+        text = GetComponent<TextMeshProUGUI>();
+
         GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
     }
 
     private void GameManager_OnGameStateChanged(GameState state)
@@ -24,9 +31,8 @@ public class ResumeCounterScript : MonoBehaviour
 
     void Start()
     {
-        text = GetComponent<TextMeshProUGUI>();
         gameObject.SetActive(false);
-
+        GameManager.Instance.UpdateGameState(GameState.Initiating);
     }
 
     IEnumerator ResumeGame()
